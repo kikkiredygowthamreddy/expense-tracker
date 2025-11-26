@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# root node_modules
+/node_modules
+
+# backend node_modules
+/backend/node_modules
+
+# SQLite DB
+/backend/db.sqlite
+
+# env files
+.env
+/backend/.env
