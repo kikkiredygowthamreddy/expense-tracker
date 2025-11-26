@@ -1,0 +1,419 @@
+/* ============ GLOBAL RESET & BASE ============ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #111827;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f5f7ff;         /* light, no gradient */
+  color: #111827;
+}
+
+/* basic links */
+a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* buttons */
+button {
+  border-radius: 999px;
+  border: none;
+  padding: 0.6em 1.4em;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  background: #111827;
+  color: #f9fafb;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background 0.12s ease;
+}
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+}
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* inputs */
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 0.6rem 0.75rem;
+  outline: none;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+}
+
+/* simple utility */
+.muted {
+  color: #6b7280;
+}
+.center {
+  text-align: center;
+}
+
+/* full-screen centering used by Login / Register / Intro sometimes */
+.app-fullscreen {
+  min-height: calc(100vh - 60px); /* minus navbar */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+}
+
+/* ============ NAVBAR ============ */
+
+.app-navbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.app-navbar .brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-links a {
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #4b5563;
+  text-decoration: none;
+}
+
+.navbar-links a.active {
+  background: #e5edff;
+  color: #1d4ed8;
+}
+
+/* (if a theme toggle exists, keep it small & visible) */
+.theme-toggle {
+  margin-left: 16px;
+}
+
+/* ============ INTRO / HOME PAGE ============ */
+
+/* outer area of home (under navbar) */
+.intro-page {
+  min-height: calc(100vh - 60px);
+  padding: 48px 16px 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;           /* <- pure white, no gradient */
+}
+
+/* hero card */
+.intro-hero {
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 32px 32px;
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 32px 80px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+/* college name */
+.intro-college {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+/* main title */
+.intro-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 6px 0 10px;
+}
+
+/* subtitle */
+.intro-subtitle {
+  font-size: 1rem;
+  color: #4b5563;
+  max-width: 520px;
+  margin: 0 auto 20px;
+}
+
+/* buttons row */
+.intro-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* primary / secondary buttons on intro */
+.intro-actions .primary-btn {
+  background: linear-gradient(90deg, #4f46e5, #38bdf8);
+  color: #ffffff;
+}
+.intro-actions .secondary-btn {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* More info panel (below hero card, not full-screen) */
+.intro-more-panel {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto 0;
+  padding: 20px 24px 24px;
+  background: #f9fafb;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  color: #111827;
+}
+
+.intro-more-panel h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.intro-more-panel h4 {
+  margin-bottom: 6px;
+}
+.intro-more-panel ul {
+  margin-top: 4px;
+  padding-left: 20px;
+}
+
+/* ============ LOGIN / REGISTER ============ */
+
+.auth-page {
+  min-height: calc(100vh - 60px);
+  padding: 40px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* if your Login.jsx uses app-fullscreen, this will also apply */
+.auth-page,
+.app-fullscreen.login-page {
+  background: #020617;          /* dark navy background for login */
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 32px 30px 28px;
+  border-radius: 20px;
+  background: #111827;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.8);
+  color: #f9fafb;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.auth-card input {
+  width: 100%;
+  margin-bottom: 14px;
+  border-radius: 10px;
+}
+
+.auth-card button {
+  width: 100%;
+  margin-top: 4px;
+  background: linear-gradient(90deg, #4f46e5, #38bdf8);
+  color: #f9fafb;
+}
+
+.auth-card p {
+  margin-top: 10px;
+}
+
+/* ============ DASHBOARD ============ */
+
+.dashboard-wrapper {
+  min-height: calc(100vh - 60px);
+  width: 100%;
+  padding: 32px 16px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f3f6ff;          /* soft light blue page bg */
+}
+
+.dashboard-card {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px 24px 28px;
+  box-shadow: 0 26px 70px rgba(15, 23, 42, 0.08);
+  color: #111827;
+}
+
+/* top actions */
+.dashboard-actions {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+
+/* form */
+.tx-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.tx-form input {
+  min-width: 150px;
+}
+
+/* chart */
+.chart-section {
+  margin-top: 18px;
+}
+.chart-wrapper {
+  width: 100%;
+  height: 340px;
+}
+
+/* predictions cards (if you’re using them) */
+.predictions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+.pred-card {
+  min-width: 220px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+/* table */
+.table-wrap {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.transactions-table thead th {
+  text-align: left;
+  padding: 10px;
+  font-weight: 600;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+.transactions-table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* ============ GLASS BUTTON VARIANTS (used everywhere) ============ */
+
+.glass-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f3f4f6;
+  color: #111827;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background 0.12s ease;
+}
+.glass-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  background: #e5edff;
+}
+
+.glass-btn.primary {
+  background: linear-gradient(90deg, #4f46e5, #38bdf8);
+  color: #ffffff;
+  border: none;
+}
+
+.glass-btn.danger {
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+}
+
+.glass-btn.ghost {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 880px) {
+  .intro-hero {
+    padding: 28px 20px 24px;
+  }
+  .intro-title {
+    font-size: 2.2rem;
+  }
+  .dashboard-card {
+    padding: 18px 14px 22px;
+  }
+  .tx-form input {
+    min-width: 120px;
+  }
+}

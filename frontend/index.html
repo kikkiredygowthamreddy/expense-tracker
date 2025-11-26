@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+    <style>
+  /* emergency override to force vertical/horizontal centering */
+  html, body, #root {
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* if your app root uses a different id/class, add those too:
+     e.g. #app, #__next, .vite-app, etc. */
+  #app, .app, .vite-app, #__next { height: 100% !important; }
+
+  /* strong centering for the top-level container */
+  .app-fullscreen {
+    min-height: 100vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20px !important;
+  }
+
+  /* also ensure Login card centers even if a parent is weird */
+  .login-card-override {
+    margin: 0 auto !important;
+    transform: none !important;
+  }
+</style>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

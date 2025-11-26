@@ -1,0 +1,65 @@
+/* src/components/intro-sidebar.css */
+.intro-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 380px;
+  max-width: 92%;
+  transform: translateX(110%);
+  transition: transform 360ms cubic-bezier(.22,.9,.35,1), box-shadow 200ms;
+  z-index: 40;
+  display: flex;
+  align-items: stretch;
+  pointer-events: none;
+}
+.intro-sidebar.open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* inner card */
+.intro-sidebar-inner {
+  margin-left: 12px;
+  width: 100%;
+  background: white;
+  color: #213547;
+  border-radius: 12px 0 0 12px;
+  padding: 20px 18px;
+  box-shadow: -8px 12px 40px rgba(2,6,23,0.12);
+  overflow-y: auto;
+  pointer-events: auto;
+}
+
+/* close icon */
+.sidebar-close {
+  position: absolute;
+  left: -42px;
+  top: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(0,0,0,0.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* sections */
+.sidebar-section { margin-bottom: 14px; }
+.sidebar-section h4 { margin: 8px 0; font-size: 14px; }
+.sidebar-section ul, .sidebar-section ol { margin: 6px 0 0 16px; color: rgba(0,0,0,0.8); }
+
+/* small responsive adjustment: on narrow screens, sidebar takes full screen from bottom */
+@media (max-width: 720px) {
+  .intro-sidebar { align-items: flex-end; }
+  .intro-sidebar-inner {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    padding: 20px;
+    max-height: 86vh;
+  }
+  .sidebar-close { left: 12px; top: 6px; }
+}

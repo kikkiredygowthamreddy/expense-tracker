@@ -1,0 +1,18 @@
+/* src/components/gradient.css */
+.app-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, #6a11cb 0%, #2575fc 50%, #ff6a88 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 18s ease infinite;
+  filter: saturate(1.06) contrast(1.02);
+  will-change: background-position;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
